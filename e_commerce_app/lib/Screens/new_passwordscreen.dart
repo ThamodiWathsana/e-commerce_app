@@ -18,25 +18,36 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios, color: Colors.grey),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const Text(
-                    'insightlancer',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[100],
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.black54),
+                      onPressed: () {},
                     ),
                   ),
+                  const SizedBox(width: 8),
+                  Positioned(
+                    top: 50.0,
+                    left: 30.0,
+                    child: Text(
+                      'insightlancer',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w200,
+                        color: Colors.grey.shade300,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                  ),
+
                   const SizedBox(width: 48), // To balance the layout
                 ],
               ),
@@ -48,11 +59,13 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                 ),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 10),
               const Text(
                 'Your new password must be different from\npreviously used passwords.',
                 style: TextStyle(fontSize: 16, color: Colors.grey),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 40),
               Column(
@@ -72,12 +85,27 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                         vertical: 16,
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(
+                          20,
+                        ), // Increased for more visible rounding
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
                       ),
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -101,7 +129,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Confirm Password',
+                    'New Password',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                   ),
                   const SizedBox(height: 8),
@@ -114,12 +142,27 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                         vertical: 16,
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(
+                          20,
+                        ), // Increased for more visible rounding
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
                       ),
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -138,12 +181,15 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                   ),
                 ],
               ),
-              const Spacer(),
+              const SizedBox(
+                height: 20,
+              ), // Reduced gap between the last input and the button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
                     // Navigate to the next screen (e.g., Complete Profile)
+                    Navigator.pushNamed(context, '/complete-profile');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF7E5C44),
@@ -162,7 +208,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              const Spacer(),
             ],
           ),
         ),

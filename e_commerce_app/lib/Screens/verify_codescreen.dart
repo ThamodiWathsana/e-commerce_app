@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'signin_page.dart';
+
 class VerifyCodeScreen extends StatefulWidget {
   const VerifyCodeScreen({Key? key}) : super(key: key);
 
@@ -39,22 +41,15 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
+                      color: Colors.grey[100],
                       shape: BoxShape.circle,
-                      border: Border.all(color: Colors.brown, width: 2),
-                      color: Colors.white,
                     ),
                     child: IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.brown,
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      iconSize: 20,
-                      padding: const EdgeInsets.all(8),
+                      icon: const Icon(Icons.arrow_back, color: Colors.black54),
+                      onPressed: () {},
                     ),
                   ),
+                  const SizedBox(width: 8),
                   Positioned(
                     top: 50.0,
                     left: 30.0,
@@ -118,8 +113,12 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigate to the NewPasswordScreen
-                    Navigator.pushNamed(context, '/new-password');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignInScreen(),
+                      ), // replace HomePage with your actual home page widget
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF7E5C44),
