@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/product.dart';
+
+import '../product.dart';
+import 'product_screen.dart';
 import '../widgets/category_item.dart';
 import '../services/api_service.dart';
 import '../widgets/product_card.dart';
@@ -59,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
     try {
       final products = await _apiService.getProducts();
       setState(() {
-        _products = products;
+        _products = products.cast<Product>();
         _isLoading = false;
       });
     } catch (e) {
